@@ -1,0 +1,413 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal-light.ttf") format("ttf");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal-Medium.ttf") format("ttf");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal-Regular.woff2") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal-Medium.woff2") format("ttf");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal-Bold.woff2") format("ttf");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal-ExtraBold.woff2") format("ttf");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --navbar-height: 60px; /* Adjust to match your navbar height */
+}
+
+* {
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+  /* outline: 1px solid red !important; */
+}
+
+/* Adjust Layout for RTL */
+[dir="rtl"] * {
+  font-family: "Tajawal", sans-serif !important;
+}
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .px-6 {
+  padding-left: 0;
+  padding-right: 1.5rem;
+}
+[dir="rtl"] .ml-2 {
+  margin-left: -8px;
+  padding-right: 1.5rem;
+}
+
+/* Custom Scrollbar for Modal */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #ffffff; /* Light Gray Background */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #c3ab79, #c3ab79); /* Cool Gradient */
+  border-radius: 10px;
+  transition: background 0.3s ease-in-out;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #c3ab79, #c3ab79); /* Hover Effect */
+}
+
+/* Tailwind customization */
+.bg-blue-500:hover {
+  background-color: #3b82f6;
+}
+
+.bg-gray-200:hover {
+  background-color: #e5e7eb;
+}
+
+.rdrDefinedRangesWrapper {
+  display: none !important;
+  width: "140px" !important;
+}
+
+.custom-icon .pin-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom-icon .pin {
+  width: 24px;
+  height: 24px;
+  background-color: #007bff; /* Blue color */
+  border-radius: 50%;
+  border: 3px solid white; /* Add a white border */
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.custom-icon .pin::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 10px solid #007bff; /* Triangle for pin tip */
+}
+
+.custom-icon .pin-label {
+  margin-top: 4px;
+  background-color: #fff;
+  padding: 2px 6px;
+  font-size: 10px;
+  color: #333;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+.leaflet-top {
+  z-index: unset !important;
+}
+
+.leaflet-container {
+  z-index: unset !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  position: absolute !important;
+  top: 5px !important;
+  right: 8px !important;
+  border: none !important;
+  text-align: center !important;
+  width: 27px !important;
+  height: 27px !important;
+  font-size: 22px !important;
+  color: #020202 !important;
+  text-decoration: none !important;
+  background: #ffffff !important;
+  border-radius: 50%;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: white !important;
+  color: #333 !important;
+  padding: 0px !important;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4) !important;
+}
+
+.custom-popup .leaflet-popup-content-wrapper {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 1.5rem;
+}
+
+.custom-popup {
+  width: 330px !important; /* w-96 */
+}
+
+.custom-popup .leaflet-popup-content {
+  margin: 0;
+  width: 330px !important;
+  height: 290px !important;
+}
+
+.custom-popup .leaflet-popup-tip-container {
+  display: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* For Firefox */
+.scrollbar-hide {
+  scrollbar-width: none !important;
+}
+
+/* Add this to your CSS file */
+.sticky-widget {
+  position: sticky;
+  top: 20px; /* Adjust this based on your layout */
+  transition: all 0.3s ease;
+}
+
+.move-out {
+  position: relative;
+  top: unset;
+}
+
+.leaflet-touch .leaflet-control-attribution {
+  display: none !important;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari */
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+/* Custom scrollbar styles for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #c3ab79, #c3ab79);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #c3ab79, #c3ab79);
+}
+
+/** ----------------LOADER--------------- */
+
+/* From Uiverse.io by PriyanshuGupta28 */
+.spinner {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+}
+
+.spinner div {
+  position: absolute;
+  width: 50%;
+  height: 150%;
+  background: #000000;
+  transform: rotate(calc(var(--rotation) * 1deg))
+    translate(0, calc(var(--translation) * 1%));
+  animation: spinner-fzua35 1s calc(var(--delay) * 1s) infinite ease;
+}
+
+.spinner div:nth-child(1) {
+  --delay: 0.1;
+  --rotation: 36;
+  --translation: 150;
+}
+
+.spinner div:nth-child(2) {
+  --delay: 0.2;
+  --rotation: 72;
+  --translation: 150;
+}
+
+.spinner div:nth-child(3) {
+  --delay: 0.3;
+  --rotation: 108;
+  --translation: 150;
+}
+
+.spinner div:nth-child(4) {
+  --delay: 0.4;
+  --rotation: 144;
+  --translation: 150;
+}
+
+.spinner div:nth-child(5) {
+  --delay: 0.5;
+  --rotation: 180;
+  --translation: 150;
+}
+
+.spinner div:nth-child(6) {
+  --delay: 0.6;
+  --rotation: 216;
+  --translation: 150;
+}
+
+.spinner div:nth-child(7) {
+  --delay: 0.7;
+  --rotation: 252;
+  --translation: 150;
+}
+
+.spinner div:nth-child(8) {
+  --delay: 0.8;
+  --rotation: 288;
+  --translation: 150;
+}
+
+.spinner div:nth-child(9) {
+  --delay: 0.9;
+  --rotation: 324;
+  --translation: 150;
+}
+
+.spinner div:nth-child(10) {
+  --delay: 1;
+  --rotation: 360;
+  --translation: 150;
+}
+
+@keyframes spinner-fzua35 {
+  0%,
+  10%,
+  20%,
+  30%,
+  50%,
+  60%,
+  70%,
+  80%,
+  90%,
+  100% {
+    transform: rotate(calc(var(--rotation) * 1deg))
+      translate(0, calc(var(--translation) * 1%));
+  }
+
+  50% {
+    transform: rotate(calc(var(--rotation) * 1deg))
+      translate(0, calc(var(--translation) * 1.5%));
+  }
+}

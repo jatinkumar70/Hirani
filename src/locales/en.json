@@ -1,0 +1,78 @@
+{
+  "welcome": "Find a short stay",
+  "description": "Experience unforgettable stays with bnbme Holiday Homes – your gateway to luxury and comfort.",
+  "Dubai": "Dubai",
+  "Riyadh": "Riyadh",
+  "bnbme your home": "bnbme your home",
+  "adult": "Adult",
+  "pet": "Pet",
+  "kid": "Kid",
+  "infant": "Infant",
+  "check out": "Check out",
+  "check in": "Check in",
+  "try dubai": "try dubai...",
+  "filters": "Filters",
+  "dubaiMall": "Dubai Mall",
+  "beach": "Beach",
+  "luxury": "Luxury",
+  "metro": "Metro",
+  "workFriendly": "Work friendly",
+  "gym": "Gym",
+  "petsAllowed": "Pets allowed",
+  "pool": "Pool",
+  "supermarket": "Supermarket",
+  "monthlySubscription": "Monthly Subscription",
+  "exploreDubai": "Explore Dubai",
+  "dubaiDescription": "Discover a blend of modern marvels and cultural heritage in the heart of the UAE.",
+  "viewAll": "View all",
+  "exploreRiyadh": "Explore Riyadh",
+  "riyadhDescription": "Experience the rich history and vibrant modernity of Saudi Arabia’s capital city.",
+  "trendingDestination": "Trending Destinations",
+  "trendingDestinationDesc": "Uncover the hottest travel spots capturing everyone’s attention this season.",
+  "searchOnMap": "Search On the map",
+  "seeFullMap": "See full map",
+  "whyUs": {
+    "mainTitle": "Why us?",
+    "features": {
+      "Exceptional Locations": "Stay in prime locations, close to top attractions and amenities.",
+      "Personalized Guest Services": "Experience tailored services, from airport pickups to curated experiences.",
+      "Hassle-Free Booking": "Secure and straightforward booking for a stress-free getaway.",
+      "24/7 Support": "Our dedicated team is always available to assist you during your stay."
+    }
+  },
+  "loremTitle": "Lorem ipsum dolor",
+  "loremDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "backToTop": "Back to top",
+  "support": {
+    "title": "Support",
+    "helpCentre": "Help centre",
+    "faq": "FAQ",
+    "chat": "Chat to us"
+  },
+  "other": {
+    "title": "Other",
+    "aboutUs": "About us",
+    "blogs": "Blogs"
+  },
+  "account": {
+    "title": "Account",
+    "loginRegister": "Connect with us",
+    "listProperty": "List a property",
+    "manageBookings": "Manage my bookings"
+  },
+  "footer": {
+    "copyright": "© bnbme Holiday Homes",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "refund&Cancellations": "Refund & Cancellations",
+    "email": "wecare@bnbme.me",
+    "language": "Language",
+    "baseTitle": "Website owned & managed by B N B Holiday Homes Rental LLC"
+  },
+  "singleProperty": {
+    "whereYoullBe": "Where you'll be",
+    "neighbourhoodHighlights": "Neighbourhood highlights",
+    "description": "Vorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+    "otherSimilarProperties": "Other similar properties"
+  }
+}
