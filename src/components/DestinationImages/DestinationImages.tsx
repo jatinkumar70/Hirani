@@ -10,7 +10,7 @@ export const DestinationImages: {
       id: "marina",
       src: HotelsImage.Hotel12,
       alt: "Aerial view of Dubai Marina showing modern skyscrapers and yacht harbor",
-      title: "Dubai Marina",
+      title: "Mandi",
       aspectRatio: "square",
       description:
         "Dubai Marina is an artificial canal city, built along a 3 km stretch of Persian Gulf shoreline. It features luxury apartments, hotels, and a vibrant waterfront promenade.",
@@ -21,7 +21,7 @@ export const DestinationImages: {
       id: "expo",
       src: HotelsImage.Hotel13,
       alt: "Bird's eye view of Expo City Dubai showing pavilions and landscaping",
-      title: "Dubai Bluewaters",
+      title: "Spiti",
       aspectRatio: "square",
       description:
         "Bluewaters Dubai is a futuristic district that has been repurposed from the Expo 2020 site. It showcases innovation, sustainability, and cutting-edge technology.",
@@ -34,7 +34,7 @@ export const DestinationImages: {
       id: "downtown",
       src: HotelsImage.Hotel14,
       alt: "Sunset view of Dubai Downtown featuring Burj Khalifa",
-      title: "Dubai Downtown",
+      title: "Jaisalmer",
       aspectRatio: "square",
       description:
         "Downtown Dubai is a bustling city center known for the iconic Burj Khalifa, Dubai Mall, and the Dubai Fountain. It's a hub for tourism, entertainment, and luxury living.",
@@ -47,7 +47,7 @@ export const DestinationImages: {
       src: HotelsImage.Hotel15,
       alt: "Aerial view of Palm Jumeirah showing the palm-shaped island",
       aspectRatio: "square",
-      title: "Dubai Palm Jumeirah",
+      title: "Manali",
       description:
         "Palm Jumeirah is an artificial archipelago in the shape of a palm tree. It features luxury hotels, beach clubs, and high-end residences with stunning views of the Arabian Gulf.",
       hotelLocation: "Atlantis, The Palm",
@@ -57,7 +57,7 @@ export const DestinationImages: {
       id: "business-bay",
       src: HotelsImage.Hotel16,
       alt: "Night view of Business Bay district with illuminated buildings",
-      title: "Dubai Business Bay",
+      title: "Kullu",
       aspectRatio: "square",
       description:
         "Business Bay is a central business district offering a mix of residential and commercial properties. It's known for its modern architecture and proximity to Downtown Dubai.",

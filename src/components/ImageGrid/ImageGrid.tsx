@@ -36,7 +36,7 @@ export default function ImageGrid({
             <ImageCard
               image={image}
               priority={index === 0}
-              onClick={() => {}}
+              onClick={() => { }}
             />
           </div>
         ))}
@@ -49,7 +49,7 @@ export default function ImageGrid({
             key={image.id}
             onClick={() => handleImageClick(image)}
             className="cursor-pointer">
-            <ImageCard image={image} onClick={() => {}} />
+            <ImageCard image={image} onClick={() => { }} />
           </div>
         ))}
       </div>

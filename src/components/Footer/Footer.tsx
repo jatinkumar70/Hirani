@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
         {/* Bottom Section */}
         <div className="flex flex-col sm:flex-row justify-between items-center mt-8 text-base">
           <div className="flex flex-wrap items-center font-medium gap-2 mb-4 sm:mb-0">
-            <span>{"© Hirani Hotels"}</span>
+            <span>{"© H&RA Northern India"}</span>
             <span>·</span>
             <Link href="/privacy">Privacy</Link>
             <span>·</span>
@@ -70,7 +70,7 @@ const Footer: React.FC = () => {
             <span>·</span>
             <CancellationPolicyDialog t={"Refund & Cancellations"} />
             <span>·</span>
-            <span>care@hiranihotels.com</span>
+            <span> hrani.1950@gmail.com</span>
           </div>
 
           <div className="flex items-center space-x-4">
@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
         </div>
         <div className="text-center pt-4 text-base font-medium">
           <span>
-            {"Website owned & managed by Hirani Hotels & Resorts"}
+            {"Website owned and managed by H&RA Northern India"}
           </span>
         </div>
       </Section>

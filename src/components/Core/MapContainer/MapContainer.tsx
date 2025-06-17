@@ -5,8 +5,8 @@ import { MapUpdater } from "../../MapUpdater/MapUpdater";
 import HotelMarker from "./components/HotelMarker/HotelMarker";
 
 const cityCoordinates: Record<string, [number, number]> = {
-  Dubai: [25.2048, 55.2708],
-  Riyadh: [24.7136, 46.6753],
+  "Northern India": [31.1048, 77.1734],
+  "North-East India": [27.0238, 88.5122],
 };
 
 const HotelMap: React.FC<{
@@ -15,8 +15,8 @@ const HotelMap: React.FC<{
   loc?: any;
 }> = ({ selectedCity, data, loc }) => {
   const [isCtrlPressed, setIsCtrlPressed] = useState(false);
-  //* Set fallback center to Dubai if city is not found
-  const mapCenter = cityCoordinates[selectedCity] || cityCoordinates.Dubai;
+  //* Set fallback center to Northern India if city is not found
+  const mapCenter = cityCoordinates[selectedCity] || cityCoordinates["Northern India"];
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -51,7 +51,7 @@ const HotelMap: React.FC<{
         <div className="lg:h-full h-[700px]">
           <MapContainer
             center={mapCenter}
-            zoom={13}
+            zoom={6}
             style={{ height: "100%", width: "100%", borderRadius: "10px" }}
             scrollWheelZoom={isCtrlPressed}>
             <MapUpdater center={mapCenter} />

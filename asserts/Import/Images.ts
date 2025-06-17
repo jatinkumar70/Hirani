@@ -19,11 +19,11 @@ import Hotel8 from "../hotels/hotel-8.webp";
 import Hotel9 from "../hotels/hotel-9.webp";
 import Hotel10 from "../hotels/hotel-10.webp";
 import Hotel11 from "../hotels/hotel-11.webp";
-import Hotel12 from "../destinations/dest-4.webp";
-import Hotel13 from "../destinations/dest-5.webp";
-import Hotel14 from "../destinations/dest-1.webp";
-import Hotel15 from "../destinations/dest-3.webp";
-import Hotel16 from "../destinations/dest-2.webp";
+import Hotel12 from "../destinations/dest-6.webp";
+import Hotel13 from "../destinations/dest-7.webp";
+import Hotel14 from "../destinations/dest-8.webp";
+import Hotel15 from "../destinations/dest-9.webp";
+import Hotel16 from "../destinations/dest-10.webp";
 
 //* ____________Property Listing_____________ *//
 

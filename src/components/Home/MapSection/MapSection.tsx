@@ -19,13 +19,13 @@ const MapSection: React.FC<IMapSectionProps> = (props) => {
   const {
     title,
     seeFullMap,
-    dubai,
-    riyadh,
-    dubaiProperties = [],
-    riyadhProperties = [],
+    northernIndia,
+    northEastIndia,
+    northernIndiaProperties = [],
+    northEastIndiaProperties = [],
   } = props;
 
-  const [selectedCity, setSelectedCity] = useState<string>("Dubai");
+  const [selectedCity, setSelectedCity] = useState<string>("Northern India");
 
   const heading = title ?? "Explore Dubai";
 
@@ -35,7 +35,7 @@ const MapSection: React.FC<IMapSectionProps> = (props) => {
 
   // Show the correct properties based on selected city
   const filteredData =
-    selectedCity === "Dubai" ? dubaiProperties : riyadhProperties;
+    selectedCity === "Northern India" ? northernIndiaProperties : northEastIndiaProperties;
 
   return (
     <Section className="flex flex-col gap-3">
@@ -45,13 +45,13 @@ const MapSection: React.FC<IMapSectionProps> = (props) => {
             {heading}
           </h2>
           <CitySelectButton
-            textOne={dubai}
-            textTwo={riyadh}
+            textOne={northernIndia}
+            textTwo={northEastIndia}
             onToggle={handleCityToggle}
           />
         </div>
         <div className="hidden lg:flex items-center gap-3">
-          <Link
+          {/* <Link
             href={{
               pathname: "/full-map",
               query: {
@@ -65,7 +65,7 @@ const MapSection: React.FC<IMapSectionProps> = (props) => {
             </span>
             <GoArrowRight size={25} className="flex rtl:hidden" />
             <GoArrowLeft size={25} className="hidden rtl:inline-block" />
-          </Link>
+          </Link> */}
         </div>
       </div>
 

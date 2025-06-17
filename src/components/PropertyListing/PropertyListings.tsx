@@ -37,18 +37,18 @@ export default function PropertyListings({
             // and remove the last word (e.g. "348R+QGV - JLT Cluster Jin" becomes "JLT Cluster")
             const formattedArea = hotel.location.area.includes("-")
               ? (() => {
-                  const afterDash = hotel.location.area.split("-")[1].trim();
-                  const words = afterDash.split(" ");
-                  return words.length > 1
-                    ? words.slice(0, words.length - 1).join(" ")
-                    : afterDash;
-                })()
+                const afterDash = hotel.location.area.split("-")[1].trim();
+                const words = afterDash.split(" ");
+                return words.length > 1
+                  ? words.slice(0, words.length - 1).join(" ")
+                  : afterDash;
+              })()
               : hotel.location.area;
 
             return (
               <CarouselItem
                 key={hotel.id}
-                className="pl-2 md:pl-6 sm:basis-1/2 md:basis-1/2 lg:basis-1/3 xl:basis-1/4 2xl:basis-1/5 3xl:basis-1/5 group/item">
+                className="pl-2 md:pl-6 sm:basis-1/2 md:basis-1/2 lg:basis-1/3 xl:basis-1/4 2xl:basis-1/4 3xl:basis-1/4 group/item">
                 <HotelImageSection
                   hotel={hotel}
                   slug={`/property/${hotel.slug}?startDate=${hotel.from_date}&endDate=${hotel.to_date}&adults=2`}

@@ -119,7 +119,7 @@ const Home: NextPage<HomeProps> = ({ initialData }) => {
             hotelData={dubaiProperties}
             title={"Explore Jaipur"}
             description={
-              "Discover a blend of modern marvels and cultural heritage in the heart of the UAE."
+              "Discover a blend of modern marvels and cultural heritage in the heart of the India."
             }
             filter="Dubai"
           />
@@ -128,7 +128,7 @@ const Home: NextPage<HomeProps> = ({ initialData }) => {
             hotelData={riyadhProperties}
             title={"Explore Shimla"}
             description={
-              "Experience the rich history and vibrant modernity of Saudi Arabia's capital city."
+              "Experience the rich history and vibrant modernity of Himachal's capital city."
             }
             filter="Riyadh"
           />
@@ -138,7 +138,7 @@ const Home: NextPage<HomeProps> = ({ initialData }) => {
               hotelData={londonProperties}
               title={"Explore Manali"}
               description={
-                "Discover the charm and history of the UK's capital city."
+                "Discover the charm and history of the Himachal's heaven."
               }
               filter="London"
             />
@@ -151,11 +151,11 @@ const Home: NextPage<HomeProps> = ({ initialData }) => {
           />
           <MapSection
             title={"Search On the map"}
-            seeFullMap={"See full map"}
-            dubai={"Dubai"}
-            riyadh={"Riyadh"}
-            dubaiProperties={dubaiProperties}
-            riyadhProperties={riyadhProperties}
+            // seeFullMap={"See full map"}
+            northernIndia={"Northern India"}
+            northEastIndia={"North-East India"}
+            northernIndiaProperties={dubaiProperties}
+            northEastIndiaProperties={riyadhProperties}
           />
           <WhyUsSection whyus={"Why us"} />
         </>
