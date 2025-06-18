@@ -466,7 +466,7 @@ export function SearchBar({
       <div
         ref={searchBarRef}
         className={cn(
-          "absolute left-0 right-0 flex justify-center transition-all duration-200 transform",
+          "fixed top-20 left-0 right-0 flex justify-center transition-all duration-200 transform " ,
           isActivePage
             ? "opacity-100 translate-y-0"
             : scrolled
@@ -517,7 +517,7 @@ export function SearchBar({
   // Render full-width search bar
   return (
     <div
-      className={cn("relative w-full max-w-4xl mx-auto", className)}
+      className={cn("relative w-full max-w-7xl mx-auto", className)}
       ref={searchBarRef}>
       <form onSubmit={handleSubmit}>
         <div
@@ -528,7 +528,7 @@ export function SearchBar({
           {/* Location Section */}
           <div
             className={cn(
-              "group relative flex-1 min-w-[33%] p-4 rounded-l-full cursor-pointer transition-all duration-200",
+              "group relative flex-1 min-w-[33%] p-4 py-7 rounded-l-full cursor-pointer transition-all duration-200",
               activeSection === "location"
                 ? "bg-white shadow-md rounded-full"
                 : "hover:bg-none rounded-full"
