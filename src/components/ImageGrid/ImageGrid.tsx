@@ -23,16 +23,16 @@ export default function ImageGrid({
   return (
     <div
       className={cn(
-        "w-full max-w-screen-xl md:max-w-screen-lg lg:max-w-screen-xl xl:max-w-screen-2xl 2xl:max-w-screen-3xl mx-auto space-y-4",
+        "w-full max-w-screen-xl md:max-w-screen-lg lg:max-w-screen-xl xl:max-w-screen-2xl 2xl:max-w-screen-3xl mx-auto space-y-6",
         className
       )}>
       {/* Top row - 50/50 split */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {topImages.map((image, index) => (
           <div
             key={image.id}
             onClick={() => handleImageClick(image)}
-            className="cursor-pointer">
+            className="cursor-pointer transform transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl rounded-xl overflow-hidden">
             <ImageCard
               image={image}
               priority={index === 0}
@@ -43,12 +43,12 @@ export default function ImageGrid({
       </div>
 
       {/* Bottom row - 33/33/33 split */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {bottomImages.map((image) => (
           <div
             key={image.id}
             onClick={() => handleImageClick(image)}
-            className="cursor-pointer">
+            className="cursor-pointer transform transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl rounded-xl overflow-hidden">
             <ImageCard image={image} onClick={() => { }} />
           </div>
         ))}

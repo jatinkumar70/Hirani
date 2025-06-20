@@ -1,7 +1,8 @@
-import Logo from "../logos/logo_white.png";
+// import Logo from "../logos/logo_white.png";
+import Logo from "../logos/logo_new.png";
 import HeroImage from "../img/home_hero.webp";
 import LogoBlack from "../logos/logo_black_.webp";
-import LogoGold from "../logos/logo_gold.png";
+import LogoGold from "../logos/logo_new.png";
 import verifiedIcon from "../img/verify.png";
 import Vote from "../vote/vote-now.webp";
 import homePage from "../homepage/bnbme_home.png"

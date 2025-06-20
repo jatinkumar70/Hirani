@@ -13,8 +13,8 @@ export const DestinationImages: {
       title: "Mandi",
       aspectRatio: "square",
       description:
-        "Dubai Marina is an artificial canal city, built along a 3 km stretch of Persian Gulf shoreline. It features luxury apartments, hotels, and a vibrant waterfront promenade.",
-      hotelLocation: "Address Dubai Marina",
+        "Mandi is a picturesque hill station in Himachal Pradesh, known for its ancient temples, scenic beauty, and rich cultural heritage. It's often called the 'Varanasi of Hills' due to its numerous temples.",
+      hotelLocation: "Mandi",
       link: "/search?placeId=ChIJY2IG66kUXz4RZOB_j8cWtjk&startDate=2025-04-08&endDate=2025-04-09&adult=2",
     },
     {
@@ -24,8 +24,8 @@ export const DestinationImages: {
       title: "Spiti",
       aspectRatio: "square",
       description:
-        "Bluewaters Dubai is a futuristic district that has been repurposed from the Expo 2020 site. It showcases innovation, sustainability, and cutting-edge technology.",
-      hotelLocation: "Rove Expo 2020",
+        "Spiti Valley is a high-altitude desert mountain valley in the Himalayas, known for its stunning landscapes, ancient monasteries, and unique culture. It's often called 'Little Tibet' due to its Tibetan Buddhist influence.",
+      hotelLocation: "Spiti",
       link: "/search?placeId=ChIJT8PGYKQUXz4RigdkEYbMr5k&startDate=2025-04-08&endDate=2025-04-09&adult=2",
     },
   ],
@@ -37,8 +37,8 @@ export const DestinationImages: {
       title: "Jaisalmer",
       aspectRatio: "square",
       description:
-        "Downtown Dubai is a bustling city center known for the iconic Burj Khalifa, Dubai Mall, and the Dubai Fountain. It's a hub for tourism, entertainment, and luxury living.",
-      hotelLocation: "Address Downtown",
+        "Jaisalmer is the 'Golden City' of Rajasthan, famous for its magnificent sandstone fort, havelis, and desert landscapes. It's a gateway to the Thar Desert and offers camel safaris and cultural experiences.",
+      hotelLocation: "Jaisalmer",
       link: "/search?placeId=ChIJg_kMcC9oXz4RBLnAdrBYzLU&startDate=2025-04-08&endDate=2025-04-09&adult=2",
     },
 
@@ -49,8 +49,8 @@ export const DestinationImages: {
       aspectRatio: "square",
       title: "Manali",
       description:
-        "Palm Jumeirah is an artificial archipelago in the shape of a palm tree. It features luxury hotels, beach clubs, and high-end residences with stunning views of the Arabian Gulf.",
-      hotelLocation: "Atlantis, The Palm",
+        "Manali is a popular hill station in Himachal Pradesh, known for its snow-capped mountains, adventure sports, apple orchards, and vibrant culture. It's a perfect destination for both relaxation and adventure.",
+      hotelLocation: "Manali",
       link: "/search?placeId=ChIJFTtlwikVXz4RFj5Kdq68yj0&startDate=2025-04-08&endDate=2025-04-09&adult=2",
     },
     {
@@ -60,8 +60,8 @@ export const DestinationImages: {
       title: "Kullu",
       aspectRatio: "square",
       description:
-        "Business Bay is a central business district offering a mix of residential and commercial properties. It's known for its modern architecture and proximity to Downtown Dubai.",
-      hotelLocation: "JW Marriott Marquis Hotel Dubai",
+        "Kullu Valley is known as the 'Valley of Gods' in Himachal Pradesh, famous for its scenic beauty, apple orchards, and the annual Kullu Dussehra festival. It's surrounded by snow-capped peaks and offers various outdoor activities.",
+      hotelLocation: "Kullu",
       link: "/search?placeId=ChIJV_Ql7y1oXz4RDpVweQnE1D0&startDate=2025-04-08&endDate=2025-04-09&adult=2",
     },
   ],

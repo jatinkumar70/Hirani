@@ -88,22 +88,20 @@ export default function BookingTabWidget({ HotelData }: BookingWidgetProps) {
           )}
         </div>
         <Button
-          className={`text-white rounded-xl text-lg ${
-            soldOut
-              ? "bg-gray-400 cursor-not-allowed pointer-events-none"
-              : "bg-[#b9aa8e] hover:bg-[#A69880]"
-          }`}
+          className={`text-white rounded-xl text-lg ${soldOut
+            ? "bg-gray-400 cursor-not-allowed pointer-events-none"
+            : "bg-[#b9aa8e] hover:bg-[#A69880]"
+            }`}
           disabled={soldOut}
           onClick={(e) => {
             e.stopPropagation();
             if (startDates && endDates) {
               // Navigate to reservation page
-              window.location.href = `/checkout/${
-                HotelData.slug
-              }?startDate=${format(startDates, "yyyy-MM-dd")}&endDate=${format(
-                endDates,
-                "yyyy-MM-dd"
-              )}&numberOfGuestCount=${formattedGuestString()}`;
+              window.location.href = `/checkout/${HotelData.slug
+                }?startDate=${format(startDates, "yyyy-MM-dd")}&endDate=${format(
+                  endDates,
+                  "yyyy-MM-dd"
+                )}&numberOfGuestCount=${formattedGuestString()}`;
             } else {
               setIsExpanded(true);
             }
@@ -111,8 +109,8 @@ export default function BookingTabWidget({ HotelData }: BookingWidgetProps) {
           {soldOut
             ? "SOLD OUT"
             : HotelData.booking_request === 1
-            ? "Request"
-            : "Reserve"}
+              ? "Request"
+              : "Reserve"}
         </Button>
       </div>
     );
@@ -121,11 +119,10 @@ export default function BookingTabWidget({ HotelData }: BookingWidgetProps) {
   //* Expanded view (mobile) or desktop view
   return (
     <div
-      className={`flex flex-col ${
-        isMobile
-          ? "items-center rounded-xl relative z-[1001]"
-          : "gap-8 items-center pb-6"
-      }`}>
+      className={`flex flex-col ${isMobile
+        ? "items-center rounded-xl relative z-[1001]"
+        : "gap-8 items-center pb-6"
+        }`}>
       {/* Mobile back button */}
       {isMobile && (
         <div className="flex justify-between w-full mb-2">
@@ -138,24 +135,21 @@ export default function BookingTabWidget({ HotelData }: BookingWidgetProps) {
       )}
 
       <Card
-        className={`w-full ${
-          isMobile
-            ? "shadow-md border-2 border-[#d7d7d7] rounded-xl"
-            : "shadow-2xl border border-black/40/15 rounded-2xl"
-        }`}>
+        className={`w-full ${isMobile
+          ? "shadow-md border-2 border-[#d7d7d7] rounded-xl"
+          : "shadow-2xl border border-black/40/15 rounded-2xl"
+          }`}>
         <CardContent className="p-6">
           <div className="flex justify-between items-center mb-6">
             {isLoading && HotelData.booking_request !== 1 ? (
               <Skeleton
-                className={`h-${isMobile ? "6" : "8"} w-${
-                  isMobile ? "16" : "32"
-                }`}
+                className={`h-${isMobile ? "6" : "8"} w-${isMobile ? "16" : "32"
+                  }`}
               />
             ) : (
               <div
-                className={`${
-                  isMobile ? "text-xl" : "text-2xl"
-                } font-bold flex items-center gap-1`}>
+                className={`${isMobile ? "text-xl" : "text-2xl"
+                  } font-bold flex items-center gap-1`}>
                 {soldOut ? (
                   <span className="text-red-600 font-bold">SOLD OUT</span>
                 ) : (
@@ -205,9 +199,8 @@ export default function BookingTabWidget({ HotelData }: BookingWidgetProps) {
             <div className="flex items-center gap-2">
               <Button
                 variant="outline"
-                className={`w-full h-12 justify-start text-left font-normal border border-black${
-                  isMobile ? " rounded-xl" : "/40"
-                }`}
+                className={`w-full h-12 justify-start text-left font-normal border border-black${isMobile ? " rounded-xl" : "/40"
+                  }`}
                 onClick={() => setIsCalendarOpen(true)}>
                 <CalendarIcon className="mr-2 h-4 w-4" />
                 {startDates ? (
@@ -220,9 +213,8 @@ export default function BookingTabWidget({ HotelData }: BookingWidgetProps) {
               </Button>
               <Button
                 variant="outline"
-                className={`w-full h-12 justify-start text-left font-normal border border-black${
-                  isMobile ? " rounded-xl" : "/40"
-                }`}
+                className={`w-full h-12 justify-start text-left font-normal border border-black${isMobile ? " rounded-xl" : "/40"
+                  }`}
                 onClick={() => setIsCalendarOpen(true)}>
                 <CalendarIcon className="mr-2 h-4 w-4" />
                 {endDates ? (
@@ -271,19 +263,17 @@ export default function BookingTabWidget({ HotelData }: BookingWidgetProps) {
               className={soldOut ? "pointer-events-none" : ""}>
               <Button
                 disabled={soldOut}
-                className={`text-white w-full mb-6 ${
-                  isMobile ? "rounded-xl" : ""
-                } ${
-                  soldOut
+                className={`text-white w-full mb-6 ${isMobile ? "rounded-xl" : ""
+                  } ${soldOut
                     ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-dark-gold hover:bg-[#A69880]"
-                }`}
+                    : "bg-gray-700 hover:bg-[#8898aa]"
+                  }`}
                 size="lg">
                 {soldOut
                   ? "SOLD OUT"
                   : HotelData.booking_request === 1
-                  ? "Enquiry"
-                  : "Reserve"}
+                    ? "Enquiry"
+                    : "Reserve"}
               </Button>
             </Link>
           ) : !isMobile ? (

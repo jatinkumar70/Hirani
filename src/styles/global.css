@@ -64,6 +64,7 @@ body {
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Tajawal";
   src: url("/fonts/Tajawal-Medium.ttf") format("ttf");
@@ -105,7 +106,8 @@ body {
 }
 
 :root {
-  --navbar-height: 60px; /* Adjust to match your navbar height */
+  --navbar-height: 60px;
+  /* Adjust to match your navbar height */
 }
 
 * {
@@ -128,6 +130,7 @@ body {
   padding-left: 0;
   padding-right: 1.5rem;
 }
+
 [dir="rtl"] .ml-2 {
   margin-left: -8px;
   padding-right: 1.5rem;
@@ -139,18 +142,21 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #ffffff; /* Light Gray Background */
+  background: #ffffff;
+  /* Light Gray Background */
   border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #c3ab79, #c3ab79); /* Cool Gradient */
+  background: linear-gradient(45deg, #616161, #616161);
+  /* Cool Gradient */
   border-radius: 10px;
   transition: background 0.3s ease-in-out;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #c3ab79, #c3ab79); /* Hover Effect */
+  background: linear-gradient(45deg, #616161, #616161);
+  /* Hover Effect */
 }
 
 /* Tailwind customization */
@@ -177,10 +183,13 @@ body {
 .custom-icon .pin {
   width: 24px;
   height: 24px;
-  background-color: #007bff; /* Blue color */
+  background-color: #007bff;
+  /* Blue color */
   border-radius: 50%;
-  border: 3px solid white; /* Add a white border */
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  border: 3px solid white;
+  /* Add a white border */
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  /* Subtle shadow for depth */
 }
 
 .custom-icon .pin::after {
@@ -193,7 +202,8 @@ body {
   height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 10px solid #007bff; /* Triangle for pin tip */
+  border-top: 10px solid #007bff;
+  /* Triangle for pin tip */
 }
 
 .custom-icon .pin-label {
@@ -245,7 +255,8 @@ body {
 }
 
 .custom-popup {
-  width: 330px !important; /* w-96 */
+  width: 330px !important;
+  /* w-96 */
 }
 
 .custom-popup .leaflet-popup-content {
@@ -271,7 +282,8 @@ body {
 /* Add this to your CSS file */
 .sticky-widget {
   position: sticky;
-  top: 20px; /* Adjust this based on your layout */
+  top: 20px;
+  /* Adjust this based on your layout */
   transition: all 0.3s ease;
 }
 
@@ -285,12 +297,15 @@ body {
 }
 
 .scrollbar-hidden::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for Chrome, Safari */
+  display: none;
+  /* Hide scrollbar for Chrome, Safari */
 }
 
 .scrollbar-hidden {
-  -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
-  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none;
+  /* Hide scrollbar for IE/Edge */
+  scrollbar-width: none;
+  /* Hide scrollbar for Firefox */
 }
 
 /* Custom scrollbar styles for webkit browsers */
@@ -304,12 +319,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #c3ab79, #c3ab79);
+  background: linear-gradient(to bottom, #616161, #616161);
   border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #c3ab79, #c3ab79);
+  background: linear-gradient(to bottom, #616161, #616161);
 }
 
 /** ----------------LOADER--------------- */
@@ -326,8 +341,7 @@ body {
   width: 50%;
   height: 150%;
   background: #000000;
-  transform: rotate(calc(var(--rotation) * 1deg))
-    translate(0, calc(var(--translation) * 1%));
+  transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
   animation: spinner-fzua35 1s calc(var(--delay) * 1s) infinite ease;
 }
 
@@ -392,6 +406,7 @@ body {
 }
 
 @keyframes spinner-fzua35 {
+
   0%,
   10%,
   20%,
@@ -402,12 +417,10 @@ body {
   80%,
   90%,
   100% {
-    transform: rotate(calc(var(--rotation) * 1deg))
-      translate(0, calc(var(--translation) * 1%));
+    transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
   }
 
   50% {
-    transform: rotate(calc(var(--rotation) * 1deg))
-      translate(0, calc(var(--translation) * 1.5%));
+    transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1.5%));
   }
 }

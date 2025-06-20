@@ -201,7 +201,7 @@ export default function Navbar() {
                 <span className="sr-only">Menu</span>
               </button>
 
-              <LogoIcon width={120} height={50} src={Images.LogoGold.src} />
+              <LogoIcon width={80} height={50} src={Images.LogoGold.src} />
             </div>
 
             <div
@@ -232,7 +232,7 @@ export default function Navbar() {
               <span
                 className="text-gray-700 text-md cursor-pointer font-medium hidden lg:inline-block"
                 onClick={handleRoute}>
-                Hirani Hotels
+                H & RA Northern India
               </span>
               {/* )} */}
               <UserDropdown

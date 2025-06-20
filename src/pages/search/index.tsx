@@ -4,11 +4,9 @@ import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import { Images } from "../../../asserts/Import/Images";
 import Topbar from "../../components/Common/Topbar/Topbar";
-import { DownSearchSlider } from "../../components/DownSearchSlider/DownSearchSlider";
 import HiddenHeading from "../../components/HiddenHeading/HiddenHeading";
 import PageSEO from "../../components/SEO/PageSEO";
 import FloatingWhatsAppButton from "../../components/whatsapp/FloatingWhatsAppButton ";
-import { useMobile } from "../../hooks/useMobile";
 import PropertySearchView from "../../modules/PropertySearchView/PropertySearchView";
 import type { Property } from "../../types/types";
 import { server_base_api } from "../../utils/api";
@@ -18,7 +16,6 @@ export default function ProductSearch() {
   const [hotelsListData, setHotelsListData] = useState<Property[]>([]);
   const [propertyRecords, setPropertyRecords] = useState<number>(0);
   const [isLoading, setIsLoading] = useState(true);
-  const isMobile = useMobile();
 
   // Memoized function to generate query parameters
   const getQueryParams = useCallback(() => {
@@ -109,7 +106,8 @@ export default function ProductSearch() {
       />
       <HiddenHeading text="Find Your Ideal Stay in Dubai" />
 
-      {isMobile ? <DownSearchSlider searchData={router.query} /> : <Topbar />}
+      {/* Use Topbar for both mobile and desktop since we have a dedicated filter sidebar */}
+      <Topbar />
 
       <PropertySearchView
         hotelsList={hotelsListData}

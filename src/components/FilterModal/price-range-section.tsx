@@ -268,7 +268,7 @@ export default function PriceRangeSection({
                     ? "8px"
                     : "13px",
                 maxWidth: "13px",
-                backgroundColor: "#C3AB79",
+                backgroundColor: "#8898aa",
                 height: `${(d.count / maxCount) * 100}%`,
               }}
               initial={{ height: 0 }}
@@ -276,7 +276,7 @@ export default function PriceRangeSection({
                 height: `${(d.count / maxCount) * 100}%`,
                 opacity:
                   scaledPrices[i] >= localPriceRange.min &&
-                  scaledPrices[i] <= localPriceRange.max
+                    scaledPrices[i] <= localPriceRange.max
                     ? 1
                     : 0.3,
               }}
@@ -292,7 +292,7 @@ export default function PriceRangeSection({
         <div className="absolute bottom-0 left-0 right-0">
           <div className="w-full h-1 bg-gray-200 relative">
             <motion.div
-              className="absolute h-1 bg-primary-gold"
+              className="absolute h-1 bg-gray-600"
               initial={{
                 left: `${minPosition}%`,
                 right: `${100 - maxPosition}%`,
@@ -327,17 +327,16 @@ export default function PriceRangeSection({
                 scale: { type: "spring", stiffness: 500, damping: 15 },
               }}>
               <div
-                className={`w-6 h-6 sm:w-8 sm:h-8 bg-white border-2 ${
-                  isDragging === "min"
-                    ? "border-primary-gold"
-                    : "border-primary-gold"
-                } rounded-full shadow-lg flex items-center justify-center transition-all`}
+                className={`w-6 h-6 sm:w-8 sm:h-8 bg-white border-2 ${isDragging === "min"
+                  ? "border-gray-600"
+                  : "border-gray-600"
+                  } rounded-full shadow-lg flex items-center justify-center transition-all`}
                 onMouseDown={(e) => handleMouseDown(e, "min")}
                 onTouchStart={(e) => handleTouchStart(e, "min")}
                 onMouseEnter={() => setShowTooltip("min")}
                 onMouseLeave={() => !isDragging && setShowTooltip(null)}>
                 {isDragging === "min" && (
-                  <div className="w-2 h-2 bg-primary-gold rounded-full" />
+                  <div className="w-2 h-2 bg-gray-600 rounded-full" />
                 )}
               </div>
 
@@ -375,17 +374,16 @@ export default function PriceRangeSection({
                 scale: { type: "spring", stiffness: 500, damping: 15 },
               }}>
               <div
-                className={`w-6 h-6 sm:w-8 sm:h-8 bg-white border-2 ${
-                  isDragging === "max"
-                    ? "border-primary-gold"
-                    : "border-primary-gold"
-                } rounded-full shadow-lg flex items-center justify-center transition-all`}
+                className={`w-6 h-6 sm:w-8 sm:h-8 bg-white border-2 ${isDragging === "max"
+                  ? "border-gray-600"
+                  : "border-gray-600"
+                  } rounded-full shadow-lg flex items-center justify-center transition-all`}
                 onMouseDown={(e) => handleMouseDown(e, "max")}
                 onTouchStart={(e) => handleTouchStart(e, "max")}
                 onMouseEnter={() => setShowTooltip("max")}
                 onMouseLeave={() => !isDragging && setShowTooltip(null)}>
                 {isDragging === "max" && (
-                  <div className="w-2 h-2 bg-primary-gold rounded-full" />
+                  <div className="w-2 h-2 bg-gray-600 rounded-full" />
                 )}
               </div>
 
@@ -426,9 +424,8 @@ export default function PriceRangeSection({
           <label className="block text-sm mb-1 ml-2">Maximum</label>
           <input
             type="text"
-            value={`${localPriceRange.max}${
-              localPriceRange.max === maxPrice ? "+" : ""
-            }`}
+            value={`${localPriceRange.max}${localPriceRange.max === maxPrice ? "+" : ""
+              }`}
             onChange={(e) =>
               handlePriceInput(e.target.value.replace(/\D/g, ""), "max")
             }

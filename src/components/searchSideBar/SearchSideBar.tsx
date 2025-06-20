@@ -362,9 +362,8 @@ export const SearchSidebar: React.FC = () => {
 
               {/* Location Section */}
               <div
-                className={`p-5 border border-black/20 shadow-md rounded-2xl ${
-                  activeSection === "location" ? "bg-gray-50" : ""
-                }`}
+                className={`p-5 border border-black/20 shadow-md rounded-2xl ${activeSection === "location" ? "bg-gray-50" : ""
+                  }`}
                 onClick={() => {
                   setActiveSection("location");
                 }}>
@@ -421,9 +420,8 @@ export const SearchSidebar: React.FC = () => {
 
               {/* Date Section */}
               <div
-                className={`p-5 border border-black/20 shadow-md rounded-2xl ${
-                  activeSection === "dates" ? "bg-gray-50" : ""
-                }`}
+                className={`p-5 border border-black/20 shadow-md rounded-2xl ${activeSection === "dates" ? "bg-gray-50" : ""
+                  }`}
                 onClick={() => {
                   setActiveSection("dates");
                   setIsCalendarOpen((prev) => !prev);
@@ -446,9 +444,8 @@ export const SearchSidebar: React.FC = () => {
               )}
               {/* Guests Section */}
               <div
-                className={`p-5 border border-black/20 shadow-md rounded-2xl ${
-                  activeSection === "guests" ? "bg-gray-50" : ""
-                }`}
+                className={`p-5 border border-black/20 shadow-md rounded-2xl ${activeSection === "guests" ? "bg-gray-50" : ""
+                  }`}
                 onClick={() =>
                   setActiveSection(activeSection === "guests" ? null : "guests")
                 }>
@@ -477,11 +474,10 @@ export const SearchSidebar: React.FC = () => {
                               setGuestCount(key, guestCounts[key] - 1);
                             }}
                             disabled={guestCounts[key] <= 0}
-                            className={`w-8 h-8 rounded-full border border-gray-400 flex items-center justify-center ${
-                              guestCounts[key] <= 0
-                                ? "opacity-50 cursor-not-allowed"
-                                : "hover:bg-gray-100"
-                            }`}>
+                            className={`w-8 h-8 rounded-full border border-gray-400 flex items-center justify-center ${guestCounts[key] <= 0
+                              ? "opacity-50 cursor-not-allowed"
+                              : "hover:bg-gray-100"
+                              }`}>
                             <Minus className="h-4 w-4" />
                           </button>
                           <span className="text-center w-4">
