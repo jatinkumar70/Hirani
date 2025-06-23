@@ -14,6 +14,7 @@ import WhyUsSection from "../components/Home/WhyUsSection/WhyUsSection";
 import PageSEO from "../components/SEO/PageSEO";
 import type { Property } from "../types/types";
 import { api } from "../utils/api";
+import NavbarV2 from "../components/Common/Navbar/NavbarV2";
 
 interface HomeProps {
   initialData: {
@@ -111,7 +112,7 @@ const Home: NextPage<HomeProps> = ({ initialData }) => {
         <DynamicLoader />
       ) : (
         <>
-          <Navbar />
+          <NavbarV2 />
           {/* <HeroSection /> */}
           <AmenitiesBar isSearchLink />
 

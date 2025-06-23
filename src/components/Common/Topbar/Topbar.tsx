@@ -13,7 +13,6 @@ import { SearchBar } from "../../NewSearchComp/search-bar";
 import { Button } from "../../ui/Button/Button";
 import NewSidebar from "../NewSidebar/NewSidebar";
 import { UserDropdown } from "../Topbar/component/UserDropDown/UserDropDown";
-import SearchFilterButton from "../TopBarSearch/SearchFilterButton";
 
 export default function Topbar() {
   const pathname = usePathname();
@@ -164,7 +163,7 @@ export default function Topbar() {
       <header
         ref={navbarRef}
         className={cn(
-          "bg-primary-gold fixed left-0 right-0 top-0 z-[1000] transition-all duration-300 ease-out will-change-transform",
+          "bg-gray-100 fixed left-0 right-0 top-0 z-[1000] transition-all duration-300 ease-out will-change-transform",
           searchExpanded
             ? "h-auto shadow-xl"
             : scrolled
@@ -173,7 +172,7 @@ export default function Topbar() {
         )}>
         <div
           className={cn(
-            "bg-primary-gold py-0 transition-all duration-300 ease-out",
+            "bg-gray-100 py-0 transition-all duration-300 ease-out",
             scrolled || searchExpanded ? "shadow-lg" : "shadow-none"
           )}>
           <div className="w-full px-1 py-2.5 mt-2 flex items-center justify-between">
@@ -189,7 +188,7 @@ export default function Topbar() {
                 <span className="sr-only">Menu</span>
               </button>
 
-              <LogoIcon width={120} height={50} src={Images.Logo.src} />
+              <LogoIcon width={80} height={50} src={Images.Logo.src} />
             </div>
 
             <div
@@ -210,18 +209,6 @@ export default function Topbar() {
                   <span>{city}</span>
                 </Link>
               ))}
-            </div>
-
-            <div
-              className={cn(
-                "hidden lg:flex items-center gap-4 relative  xl:left-24 2xl:left-28 transition-all duration-300 -mt-3",
-                !isHotelPage
-                  ? "opacity-100 hidden"
-                  : scrolled && searchExpanded && showSearch
-                    ? "opacity-0 "
-                    : "opacity-100"
-              )}>
-              <SearchFilterButton />
             </div>
 
             <div className="flex gap-6 items-center">

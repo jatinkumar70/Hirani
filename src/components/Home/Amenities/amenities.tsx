@@ -32,19 +32,17 @@ const AmenityItem: React.FC<{
 }> = ({ Icon, label, isActive = false, onClick }) => (
   <div
     onClick={onClick}
-    className={`flex flex-col items-center w-full cursor-pointer border-b-4 border-gray-500 pb-1 transition-all duration-300 ${
-      isActive
-        ? "text-gray-800 border-black"
-        : "text-gray-800 border-transparent"
-    }`}>
+    className={`flex flex-col items-center w-full cursor-pointer border-b-4 border-gray-500 pb-1 transition-all duration-300 ${isActive
+      ? "text-gray-800 border-black"
+      : "text-gray-800 border-transparent"
+      }`}>
     <Icon
       size={17}
       className={`${isActive ? "text-gray-800" : "text-gray-500"}`}
     />
     <span
-      className={`text-gray-800 text-xs text-center whitespace-nowrap w-full  ${
-        isActive ? "font-bold" : ""
-      }`}>
+      className={`text-gray-800 text-xs text-center whitespace-nowrap w-full  ${isActive ? "font-bold" : ""
+        }`}>
       {label}
     </span>
   </div>
@@ -65,7 +63,7 @@ const Amenities: React.FC<ILinkTrue> = ({ isTrue }) => {
     searchParams.get("numberOfAdults");
 
   const amenities = [
-    { key: "is_dubai_mall", Icon: Building, label: "Dubai Mall" },
+    { key: "is_dubai_mall", Icon: Building, label: "Shopping Mall" },
     { key: "is_beach", Icon: TreePalm, label: "Beach" },
     { key: "is_luxury", Icon: Gem, label: "Luxury" },
     { key: "is_metro", Icon: TrainFrontTunnel, label: "Metro" },
@@ -109,7 +107,7 @@ const Amenities: React.FC<ILinkTrue> = ({ isTrue }) => {
       setIsAtStart(scrollContainer.scrollLeft === 0);
       setIsAtEnd(
         scrollContainer.scrollLeft >=
-          scrollContainer.scrollWidth - scrollContainer.clientWidth - 1
+        scrollContainer.scrollWidth - scrollContainer.clientWidth - 1
       );
     };
 
@@ -119,14 +117,15 @@ const Amenities: React.FC<ILinkTrue> = ({ isTrue }) => {
   }, []);
 
   return (
-    <div className="bg-white container mx-auto flex items-center flex-col lg:flex-row justify-between gap-2 lg:overflow-hidden overflow-x-auto scroll-smooth scrollbar-hidden">
+    <div className=" container mx-auto flex items-center flex-col lg:flex-row justify-between gap-2 lg:overflow-hidden overflow-x-auto scroll-smooth scrollbar-hidden">
+      <FilterButton />
       {isSearchActive && (
         <div className="hidden md:flex items-center border-r-2 border-gray-400 pr-4">
           <AmenityItem
             Icon={House}
             label="Your Search"
             isActive
-            onClick={() => {}}
+            onClick={() => { }}
           />
         </div>
       )}
@@ -147,7 +146,7 @@ const Amenities: React.FC<ILinkTrue> = ({ isTrue }) => {
         </div>
       </div>
 
-      <div className="lg:w-[120px] w-auto items-center gap-4 hidden lg:flex">
+      {/* <div className="lg:w-[120px] w-auto items-center gap-4 hidden lg:flex"> */}
         {/* <button
           onClick={() =>
             scrollContainerRef.current &&
@@ -158,8 +157,8 @@ const Amenities: React.FC<ILinkTrue> = ({ isTrue }) => {
           aria-label={isAtEnd ? "Previous slide" : "Next slide"}>
           {isAtEnd ? <GrFormPrevious size={20} /> : <GrFormNext size={20} />}
         </button> */}
-        <FilterButton />
-      </div>
+
+      {/* </div> */}
     </div>
   );
 };

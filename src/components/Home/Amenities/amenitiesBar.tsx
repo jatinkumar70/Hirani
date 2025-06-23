@@ -12,7 +12,7 @@ const AmenitiesBar: React.FC<ISearchLink> = ({ isSearchLink }) => {
   return (
     <>
       <div className="border-b border-black/10 md:mt-16 mt-7"></div>
-      <Section className="lg:mt-4 px-6 py-3 lg:py-0 flex flex-col md:flex-row items-center gap-4 justify-between">
+      <Section className="lg:mt-4 rounded-2xl px-6 py-3 lg:py-0  flex flex-col md:flex-row items-center gap-4 justify-between">
         <Amenities isTrue={isSearchLink} />
         <div className="flex lg:hidden">
           <FilterButton />

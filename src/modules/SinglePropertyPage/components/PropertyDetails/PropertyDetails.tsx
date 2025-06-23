@@ -1,27 +1,26 @@
-import {
-  BedDouble,
-  ChevronDown,
-  ChevronUp,
-  KeyRound,
-  MessageCircle,
-  PawPrint,
-  X,
-} from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import HtmlContentRenderer from "../../../../components/HtmlContentRenderer/HtmlContentRenderer";
-import { Property } from "../../../../types/types";
-import { PropertyAmenities } from "../PropertyAmenities/PropertyAmenities";
-import PropertyDetailsHeader from "../PropertyDetailsHeader/PropertyDetailsHeader";
-import PropertyNearbyPlaces from "../PropertyNearBy/PropertyNearBy";
+"use client"
+
+import type React from "react"
+
+import { BedDouble, KeyRound, MessageCircle, PawPrint, X, Star, Users, Home, Bath } from "lucide-react"
+import { useState } from "react"
+import type { Property } from "../../../../types/types"
+import { PropertyAmenities } from "../PropertyAmenities/PropertyAmenities"
+import PropertyDetailsHeader from "../PropertyDetailsHeader/PropertyDetailsHeader"
+import PropertyNearbyPlaces from "../PropertyNearBy/PropertyNearBy"
+import { Card, CardContent } from "../../../../components/ui/Card/Card"
+import { Badge } from "../../../../components/ui/Badge/Badge"
+import { Button } from "../../../../components/ui/Button/Button"
+
 
 interface ISingleHotelProp {
-  hotelData: Property;
-  handleClick?: () => void;
+  hotelData: Property
+  handleClick?: () => void
 }
 
 const PropertyDetails = ({ hotelData, handleClick }: ISingleHotelProp) => {
   return (
-    <div className="w-full md:w-[65%]  flex flex-col">
+    <div className="w-full md:w-[65%] flex flex-col space-y-8">
       <PropertyDetailsHeader
         button1={"Show All photos"}
         button2={"Video walkthrough"}
@@ -29,206 +28,209 @@ const PropertyDetails = ({ hotelData, handleClick }: ISingleHotelProp) => {
         handleClickImage={handleClick}
         hotelData={hotelData}
       />
+
       <PropertyInfo hotelData={hotelData} />
 
-      {/* <PhotoTour /> */}
-
-      <div className="border-b border-black/20 py-3"></div>
-
-      <PropertyListingInfo
+      <PropertyHighlights
         propertyListInfo={[
           {
             text: "Great check-in experience",
             desc: "95% of recent guests gave the check-in process a 5-star rating.",
-            icon: <KeyRound />,
+            icon: <KeyRound className="w-6 h-6" />,
+            rating: "5.0",
           },
           {
             text: "Pet friendly let",
             desc: "Bring your pets along for the stay.",
-            icon: <PawPrint />,
+            icon: <PawPrint className="w-6 h-6" />,
+            rating: null,
           },
           {
             text: "Great communication",
             desc: "90% of recent guests rated Daniel 5-star in communication.",
-            icon: <MessageCircle />,
+            icon: <MessageCircle className="w-6 h-6" />,
+            rating: "5.0",
           },
         ]}
       />
-      <div className="border-b border-black/20 py-3"></div>
 
       {hotelData.description && <PropertyDescription HotelDesc={hotelData} />}
 
-      <div className="py-6 flex flex-col gap-2 ">
-        {/* <HotelRoomCard hotelData={hotelData} /> */}
-        <span className="text-xl font-semibold">Where you&apos;ll sleep</span>
-        <div className="flex flex-col gap-4 border border-black/20 p-8 w-44 rounded-xl">
-          <BedDouble size={25} />
-          <div className="flex flex-col gap-1">
-            <span className="text-xl font-semibold">Living area</span>
-            <span className="text-base">
-              {hotelData?.details?.available_beds} double bed
-            </span>
-          </div>
-        </div>
-      </div>
-      <div className="border-b border-black/20 "></div>
+      <SleepingArrangements hotelData={hotelData} />
+
       <PropertyAmenities hotelAmenities={hotelData} />
-      {/* <div className="border-b border-black/20 py-3"></div> */}
+
       <PropertyNearbyPlaces hotelData={hotelData} />
     </div>
-  );
-};
+  )
+}
 
-export default PropertyDetails;
+export default PropertyDetails
 
-//**  ---------  PROPERTY DETAILS INFO ---------------- */
-
+// Property Info Component with modern design
 export const PropertyInfo = ({ hotelData }: ISingleHotelProp) => {
-  const { available_beds, bathroom_full, bedrooms, guests } = hotelData.details;
+  const { available_beds, bathroom_full, bedrooms, guests } = hotelData.details
+
   const details = [
-    { text: `${guests} guest${guests > 1 ? "s" : ""}` },
     {
-      text:
-        bedrooms && bedrooms > 0
-          ? `${bedrooms} bedroom${bedrooms > 1 ? "s" : ""}`
-          : "Studio",
+      text: `${guests} guest${guests > 1 ? "s" : ""}`,
+      icon: <Users className="w-5 h-5" />,
+      value: guests,
     },
-    { text: `${available_beds} bed${available_beds > 1 ? "s" : ""}` },
-    { text: `${bathroom_full} bathroom${bathroom_full > 1 ? "s" : ""}` },
-    // { text: `${min_stay}`, icon: <User size={17} /> },
-  ];
+    {
+      text: bedrooms && bedrooms > 0 ? `${bedrooms} bedroom${bedrooms > 1 ? "s" : ""}` : "Studio",
+      icon: <Home className="w-5 h-5" />,
+      value: bedrooms || 0,
+    },
+    {
+      text: `${available_beds} bed${available_beds > 1 ? "s" : ""}`,
+      icon: <BedDouble className="w-5 h-5" />,
+      value: available_beds,
+    },
+    {
+      text: `${bathroom_full} bathroom${bathroom_full > 1 ? "s" : ""}`,
+      icon: <Bath className="w-5 h-5" />,
+      value: bathroom_full,
+    },
+  ]
 
   return (
-    <div className="flex overflow-x-auto hide-scrollbar text-base gap-4 lg:gap-1">
-      {details.map((detail, index) => (
-        <div key={index} className="flex items-center lg:min-w-0">
-          {index > 0 && <span className="mx-1 text-gray-500">•</span>}
-          <div className="flex items-center gap-1 whitespace-nowrap">
-            <span className="text-center">{detail?.text}</span>
-            {/* {detail.icon && (
-              <span className="text-primary">{detail?.icon}</span>
-            )} */}
-          </div>
+    <Card className="border-0 shadow-sm bg-gradient-to-r from-blue-50 to-indigo-50">
+      <CardContent className="p-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {details.map((detail, index) => (
+            <div key={index} className="flex items-center space-x-3 p-3 bg-white rounded-lg shadow-sm">
+              <div className="text-blue-600">{detail.icon}</div>
+              <div>
+                <div className="text-2xl font-bold text-gray-900">{detail.value}</div>
+                <div className="text-sm text-gray-600">{detail.text.split(" ").slice(1).join(" ")}</div>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-  );
-};
+      </CardContent>
+    </Card>
+  )
+}
 
-//**  ---------  PROPERTY LIST INFO ---------------- */
-
+// Property Highlights with enhanced design
 interface IProperty {
-  icon: JSX.Element;
-  text: string;
-  desc: string;
+  icon: JSX.Element
+  text: string
+  desc: string
+  rating?: string | null
 }
 
-interface PropertyListInfoProps {
-  propertyListInfo: IProperty[];
+interface PropertyHighlightsProps {
+  propertyListInfo: IProperty[]
 }
 
-const PropertyListingInfo = ({ propertyListInfo }: PropertyListInfoProps) => {
+const PropertyHighlights = ({ propertyListInfo }: PropertyHighlightsProps) => {
   return (
-    <div className="flex flex-col gap-3 pt-4">
-      {propertyListInfo.map((propertyList) => (
-        <div
-          key={propertyList.text} // Use a unique identifier as key instead of index
-          className="flex items-start gap-3 pt-1"
-          role="listitem">
-          <div className="icon-container">{propertyList.icon}</div>
-          <div className="flex flex-col gap-1 text-base">
-            <div className="font-semibold">{propertyList.text}</div>
-            <div className="font-light">{propertyList.desc}</div>
-          </div>
-        </div>
-      ))}
+    <div className="space-y-6">
+      <h2 className="text-2xl font-bold text-gray-900">Property Highlights</h2>
+      <div className="grid gap-4">
+        {propertyListInfo.map((item, index) => (
+          <Card key={index} className="border-l-4 border-l-blue-500 shadow-sm hover:shadow-md transition-shadow">
+            <CardContent className="p-6">
+              <div className="flex items-start space-x-4">
+                <div className="p-3 bg-blue-100 rounded-full text-blue-600">{item.icon}</div>
+                <div className="flex-1">
+                  <div className="flex items-center space-x-2 mb-2">
+                    <h3 className="text-lg font-semibold text-gray-900">{item.text}</h3>
+                    {item.rating && (
+                      <Badge variant="secondary" className="bg-green-100 text-green-800">
+                        <Star className="w-3 h-3 mr-1 fill-current" />
+                        {item.rating}
+                      </Badge>
+                    )}
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
     </div>
-  );
-};
+  )
+}
 
-//**  ---------  PROPERTY DESCRIPTION ---------------- */
-
+// Enhanced Property Description
 export const PropertyDescription = ({ HotelDesc }: any) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const openModal = () => {
-    setIsModalOpen(true);
-    // Prevent body scroll when modal is open
-    document.body.style.overflow = "hidden";
-  };
+    setIsModalOpen(true)
+    document.body.style.overflow = "hidden"
+  }
 
   const closeModal = () => {
-    setIsModalOpen(false);
-    // Restore body scroll
-    document.body.style.overflow = "unset";
-  };
+    setIsModalOpen(false)
+    document.body.style.overflow = "unset"
+  }
 
-  // Check if description is long enough to need truncation
-  const shouldShowToggle =
-    HotelDesc.description && HotelDesc.description.length > 200;
+  const shouldShowToggle = HotelDesc.description && HotelDesc.description.length > 200
 
-  // Handle escape key press
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Escape") {
-      closeModal();
+      closeModal()
     }
-  };
+  }
 
   return (
     <>
-      <div className="flex flex-col gap-3 pt-4 text-base">
-        <div className="text-gray-700 leading-relaxed">
-          {shouldShowToggle ? (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: HotelDesc.description.substring(0, 280) + "...",
-              }}
-            />
-          ) : (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: HotelDesc.description || "N/A",
-              }}
-            />
+      <Card className="shadow-sm">
+        <CardContent className="p-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">About this place</h2>
+          <div className="prose prose-gray max-w-none">
+            {shouldShowToggle ? (
+              <div
+                className="text-gray-700 leading-relaxed"
+                dangerouslySetInnerHTML={{
+                  __html: HotelDesc.description.substring(0, 280) + "...",
+                }}
+              />
+            ) : (
+              <div
+                className="text-gray-700 leading-relaxed"
+                dangerouslySetInnerHTML={{
+                  __html: HotelDesc.description || "N/A",
+                }}
+              />
+            )}
+          </div>
+
+          {shouldShowToggle && (
+            <Button onClick={openModal} variant="outline" className="mt-4 border-gray-300 hover:bg-gray-50">
+              Show More
+            </Button>
           )}
-        </div>
+        </CardContent>
+      </Card>
 
-        {shouldShowToggle && (
-          <button
-            onClick={openModal}
-            className="text-sm text-black font-semibold border border-black/20 bg-gray-100 rounded-lg p-2 transition-colors w-fit">
-            Show More
-          </button>
-        )}
-      </div>
-
-      {/* Modal */}
+      {/* Enhanced Modal */}
       {isModalOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[1000]"
           onClick={closeModal}
           onKeyDown={handleKeyDown}
-          tabIndex={-1}>
+          tabIndex={-1}
+        >
           <div
-            className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[80vh] overflow-hidden"
-            onClick={(e) => e.stopPropagation()}>
-            {/* Modal Header */}
-            <div className="flex items-center justify-between p-6 border-b border-gray-200">
-              <h2 className="text-xl font-semibold text-gray-900">
-                Property Description
-              </h2>
-              <button
-                onClick={closeModal}
-                className="text-gray-400 hover:text-gray-600 transition-colors"
-                aria-label="Close modal">
+            className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[80vh] overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gray-50">
+              <h2 className="text-2xl font-bold text-gray-900">Property Description</h2>
+              <Button onClick={closeModal} variant="ghost" size="sm" className="text-gray-400 hover:text-gray-600">
                 <X size={24} />
-              </button>
+              </Button>
             </div>
 
-            {/* Modal Content */}
             <div className="p-6 overflow-y-auto max-h-[calc(80vh-120px)]">
               <div
-                className="text-gray-700 leading-relaxed prose prose-gray max-w-none"
+                className="prose prose-gray max-w-none text-gray-700 leading-relaxed"
                 dangerouslySetInnerHTML={{
                   __html: HotelDesc.description || "N/A",
                 }}
@@ -238,5 +240,29 @@ export const PropertyDescription = ({ HotelDesc }: any) => {
         </div>
       )}
     </>
-  );
-};
+  )
+}
+
+// Enhanced Sleeping Arrangements
+const SleepingArrangements = ({ hotelData }: ISingleHotelProp) => {
+  return (
+    <div className="space-y-6">
+      <h2 className="text-2xl font-bold text-gray-900">Where you'll sleep</h2>
+      <Card className="shadow-sm hover:shadow-md transition-shadow">
+        <CardContent className="p-6">
+          <div className="flex items-center space-x-4">
+            <div className="p-4 bg-blue-100 rounded-full text-blue-600">
+              <BedDouble size={32} />
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-1">Living area</h3>
+              <p className="text-gray-600">
+                {hotelData?.details?.available_beds} double bed{hotelData?.details?.available_beds > 1 ? "s" : ""}
+              </p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  )
+}

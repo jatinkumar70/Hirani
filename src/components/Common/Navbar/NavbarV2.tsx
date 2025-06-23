@@ -1,20 +1,22 @@
 "use client";
 
-import { MapPin, Menu, X } from "lucide-react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState, useMemo } from "react";
-import { FaWhatsapp } from "react-icons/fa";
-import { Images } from "../../../../asserts/Import/Images";
-import { LogoIcon } from "../../../common/Logo/LogoIcon";
-import { useAuth } from "../../../contexts/AuthProvider/AuthProvider";
-import { cn } from "../../../lib/utils";
+import { CalendarIcon, Users, MapPin, Phone, Menu, X } from "lucide-react";
+import { useState, useEffect, useMemo, useRef } from "react";
+import { format } from "date-fns";
 import { Button } from "../../ui/Button/Button";
-import NewSidebar from "../NewSidebar/NewSidebar";
-import { UserDropdown } from "../Topbar/component/UserDropDown/UserDropDown";
+import { Card, CardContent } from "../../ui/Card/Card";
+import { DateRangeSlider } from "../../ui/DateRangeSlider/DateRangeSlider";
+import GuestSelector from "../../Core/SelectGuest/SelectGuest";
+import { LogoIcon } from "../../../common/Logo/LogoIcon";
+import { cn } from "../../../lib/utils";
 import { SearchBar } from "../../NewSearchComp/search-bar";
+import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
+import { UserDropdown } from "../Topbar/component/UserDropDown/UserDropDown";
+import { useAuth } from "../../../contexts/AuthProvider/AuthProvider";
+import { Images } from "../../../../asserts/Import/Images";
 
-export default function Navbar() {
+const NavbarV2 = () => {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -50,7 +52,7 @@ export default function Navbar() {
     let lastScrollY = window.scrollY;
 
     const handleScroll = () => {
-      lastScrollY = window.scrollY;
+      lastScrollY = window.scrollY - 300;
 
       if (!ticking) {
         window.requestAnimationFrame(() => {
@@ -149,114 +151,145 @@ export default function Navbar() {
       <Link
         key={city}
         href={`/city/${city.toLowerCase()}`}
-        className="flex text-gray-700 text-sm font-medium gap-2 hover:text-primary items-center">
+        className="flex text-white text-sm font-medium gap-2 hover:text-primary items-center">
         <MapPin size={20} />
         <span>{city}</span>
       </Link>
     ));
   }, []);
 
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        searchExpanded &&
+        navbarRef.current &&
+        !navbarRef.current.contains(event.target as Node)
+      ) {
+        // Only close the active section, but keep the search expanded
+        closeSearch(false);
+        setScrolled(true);
+      }
+    };
+
+    if (searchExpanded) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [searchExpanded]);
+
+
   return (
     <>
-      {/* Full screen overlay when search is expanded */}
-      {searchExpanded && (
+      <div className="relative min-h-[100vh] flex flex-col justify-between items-center bg-black">
         <div
-          className="fixed inset-0 bg-black/50 z-[999]"
-          onClick={() => closeSearch()}
-          aria-hidden="true"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50 bg-black"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1614957004131-9e8f2a13123c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+          }}
         />
-      )}
 
-      <header
-        ref={navbarRef}
-        className={cn(
-          "bg-white fixed left-0 right-0 top-0 z-[1000] transition-all duration-300 ease-out",
-          searchExpanded
-            ? "h-auto shadow-xl"
-            : scrolled
-              ? "h-auto shadow-md"
-              : "h-auto"
-        )}>
         <div
-          className={cn(
-            "bg-white py-0 transition-all duration-300 ease-out",
-            scrolled || searchExpanded ? "shadow-lg" : "shadow-none"
-          )}>
-          <div
-            className={`${isHotelPage
-              ? "w-full max-w-[1200px] mx-auto px-4 py-2 mt-2"
-              : "w-full max-w-screen-xl md:max-w-screen-lg lg:max-w-screen-xl xl:max-w-screen-2xl mx-auto px-6 lg:px-10 py-2 mt-2"
-              } flex items-center justify-between`}>
-            <div className="flex items-center">
-              <button
-                className="text-gray-700 hover:text-gray-900 lg:hidden mr-4"
-                onClick={() => setSidebarOpen((prev) => !prev)}
-                aria-expanded={sidebarOpen}
-                aria-label="Toggle navigation menu">
-                {sidebarOpen ? (
-                  <X className="h-8 w-8" />
-                ) : (
-                  <Menu className="h-8 w-8" />
-                )}
-                <span className="sr-only">Menu</span>
-              </button>
+          className={`${isHotelPage
+            ? "w-full max-w-[1200px] mx-auto px-4 py-2 mt-2"
+            : "w-full max-w-screen-xl md:max-w-screen-lg lg:max-w-screen-xl xl:max-w-screen-2xl mx-auto px-6 lg:px-10 py-2 mt-2"
+            } flex items-center justify-between z-[1000]`}
+        >
+          <div className="flex items-center">
+            <button
+              className="text-white lg:hidden mr-4"
+              onClick={() => setSidebarOpen((prev) => !prev)}
+              aria-expanded={sidebarOpen}
+              aria-label="Toggle navigation menu"
+            >
+              {sidebarOpen ? (
+                <X className="h-8 w-8" />
+              ) : (
+                <Menu className="h-8 w-8" />
+              )}
+              <span className="sr-only">Menu</span>
+            </button>
 
-              <LogoIcon width={80} height={50} src={Images.LogoGold.src} />
-            </div>
-
-            <div
-              className={cn(
-                "hidden lg:flex items-center gap-4 ml-12 transition-all duration-300",
-                // Hide cityLinks when searchbar is in compact mode (scrolled) but show when search is expanded
-                scrolled && showSearch && !searchExpanded
-                  ? "opacity-0 pointer-events-none"
-                  : "opacity-100"
-              )}>
-              {cityLinks}
-            </div>
-
-            <div className="flex gap-6 items-center">
-              {/* {currentRouter === "/bnbme-your-home" ? (
-                <Link
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://wa.me/971504522981">
-                  <Button
-                    className="bg-green-500 hidden lg:flex items-center text-white w-auto hover:bg-green-600"
-                    size="sm">
-                    <FaWhatsapp className="h-6 w-6 mr-2" />
-                    800bnbme
-                  </Button>
-                </Link>
-              ) : ( */}
-              <span
-                className="text-gray-700 text-md cursor-pointer font-medium hidden lg:inline-block"
-                onClick={handleRoute}>
-                H & RA Northern India
-              </span>
-              {/* )} */}
-              <UserDropdown
-                handleToggle={() => handleToggleDropdown("user")}
-                open={dropdownOpen.user}
-                isUser={user}
-                handleSignOut={logout}
-                isColor={true}
-              />
-            </div>
+            <LogoIcon
+              width={120}
+              height={50}
+              src={Images.Logo.src}
+            />
           </div>
 
+          <div
+            className={cn(
+              "hidden lg:flex items-center gap-4 ml-12 transition-all duration-300",
+              // Hide cityLinks when searchbar is in compact mode (scrolled) but show when search is expanded
+              scrolled && showSearch && !searchExpanded
+                ? "opacity-0 pointer-events-none"
+                : "opacity-100"
+            )}
+          >
+            {cityLinks}
+          </div>
+
+          <div className="flex gap-6 items-center">
+            <span
+              className="text-white text-md cursor-pointer font-medium hidden lg:inline-block"
+              onClick={handleRoute}
+            >
+              H & RA Northern India
+            </span>
+            <UserDropdown
+              handleToggle={() => handleToggleDropdown("user")}
+              open={dropdownOpen.user}
+              isUser={user}
+              handleSignOut={logout}
+              isColor={true}
+            />
+          </div>
+        </div>
+
+        <div className="z-[10] flex flex-col w-full items-center justify-center px-4 py-[20rem] pt-0 sm:px-6 lg:px-8">
+          <div className="text-center">
+            {/* Hotel Title */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
+              H & RA Northern India
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-200 mb-12">
+              We are an 81-room hotel in the heart of India
+            </p>
+
+
+
+            {/* Help Text */}
+            <div className="mt-8 text-center">
+              <p className="text-white text-lg">
+                Need help? Call{" "}
+                <a
+                  href="tel:8009355218"
+                  className="text-primary-gold hover:text-white transition-colors font-semibold"
+                >
+                  800 935 5218
+                </a>
+              </p>
+            </div>
+          </div>
           {showSearch && (
             <div
               className={cn(
-                "transition-all duration-400 ease-out overflow-visible",
+                "transition-all duration-400 ease-out overflow-visible w-full",
                 !scrolled || searchExpanded
                   ? "max-h-[300px] opacity-100 transform translate-y-2"
                   : "max-h-0 opacity-0 transform translate-y-[-20px] pointer-events-none"
-              )}>
+              )}
+            >
               <SearchBar
-                className="mt-4 mb-4"
+                className="mt-4 mb-4 w-full"
                 variant="default"
-                initialSection={activeSection ? "location" : null}
+                initialSection={
+                  activeSection ? "location" : null
+                }
                 onSearch={(searchParams) => {
                   setActiveSection(false);
                 }}
@@ -267,14 +300,16 @@ export default function Navbar() {
           {showSearch && (
             <div
               onClick={handleCompactSearchClick}
-              className="w-full flex justify-center">
+              className="w-full flex justify-center"
+            >
               <SearchBar
                 scrolled={scrolled && !searchExpanded}
                 isActivePage={isHotelPage}
                 className={cn(
                   "hidden lg:flex transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform",
                   (scrolled && !searchExpanded) ||
-                    (pathname !== "/" && pathname === "/property/[slug]")
+                    (pathname !== "/" &&
+                      pathname === "/property/[slug]")
                     ? "opacity-100 transform -translate-y-0 scale-100"
                     : "opacity-0 transform translate-y-5 scale-98 pointer-events-none absolute"
                 )}
@@ -282,23 +317,9 @@ export default function Navbar() {
             </div>
           )}
         </div>
-      </header>
-
-      <NewSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-
-      {/* Add padding to account for the expanded navbar height */}
-      <div
-        className={cn(
-          "transition-all duration-300 ease-out",
-          searchExpanded
-            ? "pt-[200px]"
-            : scrolled
-              ? "pt-[80px]"
-              : isHotelPage || pathname === "/"
-                ? "pt-[140px]"
-                : "pt-[70px]"
-        )}
-      />
+      </div>
     </>
   );
-}
+};
+
+export default NavbarV2;

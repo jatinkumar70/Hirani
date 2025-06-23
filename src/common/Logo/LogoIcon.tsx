@@ -18,7 +18,7 @@ export const LogoIcon: React.FC<{
       width={width}
       height={height}
       priority={true}
-      className="cursor-pointer "
+      className="ml-12 cursor-pointer "
       onClick={() => router.push("/")}
     />
   );

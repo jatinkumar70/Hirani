@@ -140,8 +140,8 @@ export default function FiltersModal({
         selectedBedrooms === "Studio"
           ? -1
           : isNaN(Number(selectedBedrooms))
-          ? 0
-          : Number(selectedBedrooms),
+            ? 0
+            : Number(selectedBedrooms),
       beds: isNaN(Number(selectedBeds)) ? 0 : Number(selectedBeds),
       bathrooms: isNaN(Number(selectedBathrooms))
         ? 0
