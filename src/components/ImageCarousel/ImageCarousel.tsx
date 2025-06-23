@@ -213,8 +213,8 @@ const ImageCarousel: React.FC<CarouselProps> = ({ images, slug, rounded }) => {
     <div
       ref={containerRef}
       data-carousel-type="image"
-      className={`relative w-full overflow-hidden ${
-        rounded ? "rounded-xl h-[300px] lg:h-[280px]" : "h-[200px]"
+      className={`relative w-full overflow-hidden h-full ${
+        rounded ? "rounded-xl h-full" : "h-full"
       }`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -227,7 +227,7 @@ const ImageCarousel: React.FC<CarouselProps> = ({ images, slug, rounded }) => {
       {/* Carousel content */}
       <div
         className={`flex transition-transform ease-out duration-500 w-full ${
-          rounded ? "rounded-xl h-[300px] lg:h-[280px]" : "h-[200px]"
+          rounded ? "rounded-xl h-full" : "h-full"
         }`}
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
         {images.map((img, index) => (

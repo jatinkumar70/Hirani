@@ -47,8 +47,7 @@ const HotelCard: React.FC<HotelCardProps> = ({ hotel, formattedTitle, formattedA
       </div> */}
 
       {/* Title */}
-      <h3 className="font-medium text-base text-gray-900 line-clamp-2 mb-2 flex-grow">{formattedTitle}</h3>
-
+      <h3 className="font-medium text-base text-gray-900 line-clamp-1 mb-2 flex-grow truncate">{formattedTitle}</h3>
       {/* Location */}
       <div className="flex items-center gap-1 mb-3">
         <MapPin className="w-3 h-3 text-gray-400" />

@@ -69,7 +69,7 @@ const HotelImageSection: React.FC<HotelImageSectionProps> = ({
   }
 
   return (
-    <div className="relative mb-6 h-[280px] lg:h-[260px]">
+    <div className="relative h-full">
       {hotel.details.tag && (
         <div className="absolute top-3 left-3 z-10">
           <span className="px-2 py-2 text-xs font-medium bg-white/80 rounded-full">
@@ -77,15 +77,6 @@ const HotelImageSection: React.FC<HotelImageSectionProps> = ({
           </span>
         </div>
       )}
-
-      {/* Enable rating if needed */}
-      {/* {hotel.details.rating && (
-        <div className="absolute top-3 right-3 z-10">
-          <span className="px-2 py-1 text-xs font-medium bg-white/80 rounded-full flex items-center gap-1">
-            {hotel.details.rating}/5 ⭐️
-          </span>
-        </div>
-      )} */}
 
       {selectedImages ? (
         selectedImages

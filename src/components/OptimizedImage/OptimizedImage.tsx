@@ -48,7 +48,7 @@ export default function OptimizedImage({
           alt={alt || "Image"}
           className={`${className} h-[90px] transition-opacity duration-500 ${
             isLoaded ? "opacity-100" : "opacity-0"
-          } object-cover w-full  aspect-[4/3] h-full`}
+          } object-cover w-full  h-full`}
           loading="eager"
           priority
           fill={fill}

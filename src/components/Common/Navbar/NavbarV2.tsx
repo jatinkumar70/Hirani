@@ -52,7 +52,7 @@ const NavbarV2 = () => {
     let lastScrollY = window.scrollY;
 
     const handleScroll = () => {
-      lastScrollY = window.scrollY;
+      lastScrollY = window.scrollY - 300;
 
       if (!ticking) {
         window.requestAnimationFrame(() => {

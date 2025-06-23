@@ -90,11 +90,11 @@ export default function FilterHotels({ hotels, isLoading, loc }: IFilterData) {
             <Card className="overflow-visible rounded-xl w-full shadow-md border border-gray-200 bg-white hover:shadow-lg transition-shadow duration-300" key={hotel.id}>
               <CardContent className="p-0 flex flex-col md:flex-row w-full">
                 {/* Left: Images */}
-                <div className="md:w-2/5 w-full flex-shrink-0">
+                <div className="md:w-2/5 w-full h-full flex-shrink-0">
                   <HotelImageSection hotel={hotel} slug={slug} />
                 </div>
                 {/* Right: Info */}
-                <div className="flex-1 flex flex-col justify-between p-4 md:p-6 gap-2">
+                <div className="flex-1 flex flex-col justify-between p-4">
                   {/* Top: Title, rating, location */}
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
                     <div>
